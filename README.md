@@ -148,7 +148,8 @@ The app is SvelteKit 3 + TypeScript, SQLite (WAL) through Drizzle ORM, FTS5 for 
 
 ```powershell
 $env:PATH = "$PWD\runtime\node;" + $env:PATH   # only with a portable Node.js in runtime\node
-npm install            # dependencies
+node scripts/install-deps.mjs   # dependencies, as package-lock.json lists them (npm ci without
+                                #   npm trying to compile better-sqlite3; see the script)
 npm run dev            # development server with live reload
 npm run build          # production build (when the app isn't running)
 npm run build:next     # production build beside a running copy; used at the next start
@@ -159,10 +160,10 @@ npm run db:generate    # after changing src/lib/server/db/schema.ts: writes a ne
 npm run desktop:build  # rebuild "Medicus Vitae.exe" (tray app) and the shortcuts
 npm run desktop:icons  # redraw the app icons
 npm run package        # after npm run build: the download for this system, in dist/
-npm run package:check -- "dist/stage/Medicus Vitae"   # start that package once, with an empty data folder
+npm run package:check  # unpack that download in a temporary folder and start it once, empty
 ```
 
-**Releases.** The downloads are made by `.github/workflows/release.yml` on GitHub's Windows and Mac machines: raise `version` in `package.json`, commit, then `git tag v<version>` and `git push origin v<version>`. It runs the tests, builds both packages with `scripts/package.mjs`, starts each one with `scripts/smoke-test.mjs`, and publishes them as a GitHub Release. A package holds the build, the server, the migrations, the browser extension, production dependencies installed fresh for that system and its own Node.js, and never `data/`, `.env` or `tests/`. The Mac app is a small launcher (`desktop/mac/launcher.sh`) inside `Medicus Vitae.app`.
+**Releases.** The downloads are made by `.github/workflows/release.yml` on GitHub's Windows and Mac machines: raise `version` in `package.json`, commit, then `git tag v<version>` and `git push origin v<version>`. It runs the tests, builds both packages with `scripts/package.mjs`, unpacks and starts each one with `scripts/smoke-test.mjs`, and publishes them as a GitHub Release. A package holds the build, the server, the migrations, the browser extension, production dependencies installed fresh for that system and its own Node.js, and never `data/`, `.env` or `tests/`. The Mac app is a small launcher (`desktop/mac/launcher.sh`) inside `Medicus Vitae.app`.
 
 Browser and two-device tests are in `tests/e2e` (see the comment at the top of each file). They start the server with `CORTEX_FAKE_AI=1` (a stand-in AI service so the tutor can be tested without an account; never set it otherwise) and `CORTEX_EMBEDDINGS=off`. To test a `build:next` build: `$env:CORTEX_BUILD_DIR='build-next'; npm run test:e2e`.
 

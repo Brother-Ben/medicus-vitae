@@ -84,12 +84,7 @@ delete shipped.scripts;
 fs.writeFileSync(path.join(appDir, 'package.json'), JSON.stringify(shipped, null, '\t') + '\n');
 
 step('Installing production dependencies for this system');
-const npmCli = [
-	path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js'),
-	path.join(path.dirname(process.execPath), '..', 'lib', 'node_modules', 'npm', 'bin', 'npm-cli.js')
-].find((p) => fs.existsSync(p));
-if (!npmCli) fail('npm was not found next to this Node.js.');
-run(process.execPath, [npmCli, 'ci', '--omit=dev', '--no-audit', '--no-fund', '--loglevel=error'], {
+run(process.execPath, [path.join(root, 'scripts', 'install-deps.mjs'), '--omit=dev'], {
 	cwd: appDir,
 	env: { ...process.env, npm_config_update_notifier: 'false' }
 });
@@ -181,7 +176,15 @@ if (platform === 'win32') {
 	step(`Making ${baseName}.dmg`);
 	writeText(path.join(root, 'desktop', 'mac', 'Read me first.txt'), path.join(stage, 'Read me first.txt'), '\n');
 	fs.symlinkSync('/Applications', path.join(stage, 'Applications'));
-	run('hdiutil', ['create', '-volname', `Medicus Vitae ${version}`, '-srcfolder', stage, '-fs', 'HFS+', '-format', 'UDZO', '-ov', path.join(outDir, `${baseName}.dmg`)]);
+	// hdiutil now and then fails with "Resource busy" on build machines; try a few times.
+	const dmgArgs = ['create', '-volname', `Medicus Vitae ${version}`, '-srcfolder', stage, '-fs', 'HFS+', '-format', 'UDZO', '-ov', path.join(outDir, `${baseName}.dmg`)];
+	for (let attempt = 1; ; attempt++) {
+		const r = spawnSync('hdiutil', dmgArgs, { stdio: 'inherit' });
+		if (r.status === 0) break;
+		if (attempt === 4) fail('hdiutil create failed');
+		console.log(`hdiutil failed, trying again (${attempt}/3)`);
+		spawnSync('sleep', [String(attempt * 5)]);
+	}
 	fs.unlinkSync(path.join(stage, 'Applications'));
 }
 const archive = path.join(outDir, `${baseName}.${platform === 'win32' ? 'zip' : 'dmg'}`);

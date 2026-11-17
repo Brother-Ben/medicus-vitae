@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '24.22.1'
           cache: npm
-      - run: npm ci --no-audit --no-fund
+      - run: node scripts/install-deps.mjs
       - run: npm test
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3

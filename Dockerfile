@@ -2,14 +2,16 @@
 # by .github/workflows/release.yml; also builds locally with `docker build .`.
 # Settings keep their CORTEX_ names so existing .env files still work.
 # better-sqlite3 and argon2 ship prebuilt Linux binaries inside their npm
-# packages, so no compiler is needed.
+# packages, so no compiler is needed (scripts/install-deps.mjs keeps npm from
+# trying to compile better-sqlite3 anyway).
 
 FROM node:24.22.1-bookworm-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund
+COPY scripts/install-deps.mjs ./scripts/
+RUN node scripts/install-deps.mjs
 COPY . .
-RUN npm run build && npm prune --omit=dev --no-audit --no-fund
+RUN npm run build && npm prune --omit=dev --ignore-scripts --no-audit --no-fund
 
 FROM node:24.22.1-bookworm-slim
 LABEL org.opencontainers.image.title="Medicus Vitae"

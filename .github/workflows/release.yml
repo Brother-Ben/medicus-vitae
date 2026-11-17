@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
-      - run: npm ci --no-audit --no-fund
+      - run: node scripts/install-deps.mjs
       - run: npm test
 
   package:
@@ -38,11 +38,9 @@ jobs:
         include:
           - name: Windows
             os: windows-latest
-            app: dist/stage/Medicus Vitae
             file: dist/*.zip
           - name: Mac
             os: macos-latest
-            app: dist/stage/Medicus Vitae.app/Contents/Resources/app
             file: dist/*.dmg
     runs-on: ${{ matrix.os }}
     steps:
@@ -51,11 +49,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
-      - run: npm ci --no-audit --no-fund
+      - run: node scripts/install-deps.mjs
       - run: npm run build
       - run: npm run package
-      - name: Check the package
-        run: node scripts/smoke-test.mjs "${{ matrix.app }}"
+      - name: Unpack the download and start it
+        run: node scripts/smoke-test.mjs dist
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.name }}
