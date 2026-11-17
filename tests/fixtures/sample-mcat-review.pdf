@@ -1,0 +1,196 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /Outlines 3 0 R /PageMode /UseOutlines >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [8 0 R 10 0 R 12 0 R 14 0 R 16 0 R] /Count 5 >>
+endobj
+3 0 obj
+<< /Type /Outlines /First 17 0 R /Last 21 0 R /Count 5 >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Italic /Encoding /WinAnsiEncoding >>
+endobj
+7 0 obj
+<< /Length 2039 >>
+stream
+BT /F2 18 Tf 72 720.00 Td (Chapter 1. Amino Acids and Proteins) Tj ET
+BT /F2 13 Tf 72 686.00 Td (1.1 Structure of amino acids) Tj ET
+BT /F1 11 Tf 72 664.00 Td (Every standard amino acid has a central alpha carbon bonded to an amino group, a carboxyl group, a) Tj ET
+BT /F1 11 Tf 72 649.00 Td (hydrogen atom, and a variable side chain. The side chain determines whether the amino acid is) Tj ET
+BT /F1 11 Tf 72 634.00 Td (nonpolar, polar, acidic, or basic. Glycine is the only standard amino acid that is not chiral, because) Tj ET
+BT /F1 11 Tf 72 619.00 Td (its side chain is a second hydrogen atom.) Tj ET
+BT /F1 11 Tf 72 596.00 Td (At physiological pH, the amino group is protonated and the carboxyl group is deprotonated, so a free) Tj ET
+BT /F1 11 Tf 72 581.00 Td (amino acid exists mainly as a zwitterion. The isoelectric point \(pI\) is the pH at which the molecule) Tj ET
+BT /F1 11 Tf 72 566.00 Td (carries no net charge. For an amino acid without an ionizable side chain, the pI is the average of the) Tj ET
+BT /F1 11 Tf 72 551.00 Td (two pKa values.) Tj ET
+BT /F2 13 Tf 72 522.00 Td (1.2 Protein structure) Tj ET
+BT /F1 11 Tf 72 500.00 Td (Primary structure is the sequence of amino acids joined by peptide bonds. Secondary structure,) Tj ET
+BT /F1 11 Tf 72 485.00 Td (such as the alpha helix and the beta pleated sheet, is stabilized by hydrogen bonds between backbone) Tj ET
+BT /F1 11 Tf 72 470.00 Td (atoms. Tertiary structure is the overall three-dimensional shape of a single chain, stabilized by) Tj ET
+BT /F1 11 Tf 72 455.00 Td (hydrophobic interactions, disulfide bonds, salt bridges, and hydrogen bonds between side chains.) Tj ET
+BT /F1 11 Tf 72 432.00 Td (Quaternary structure describes how separate polypeptide subunits assemble. Hemoglobin, with two) Tj ET
+BT /F1 11 Tf 72 417.00 Td (alpha and two beta subunits, is the classic example. Denaturation disrupts secondary, tertiary, and) Tj ET
+BT /F1 11 Tf 72 402.00 Td (quaternary structure but leaves the primary sequence intact.) Tj ET
+BT /F1 9 Tf 296 40 Td (1) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 7 0 R /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> >>
+endobj
+9 0 obj
+<< /Length 3183 >>
+stream
+BT /F2 18 Tf 72 720.00 Td (Chapter 2. Enzymes) Tj ET
+BT /F2 13 Tf 72 686.00 Td (2.1 How enzymes work) Tj ET
+BT /F1 11 Tf 72 664.00 Td (Enzymes are biological catalysts that lower the activation energy of a reaction without changing) Tj ET
+BT /F1 11 Tf 72 649.00 Td (its equilibrium constant or its change in Gibbs free energy. They stabilize the transition state,) Tj ET
+BT /F1 11 Tf 72 634.00 Td (which increases the rate of both the forward and the reverse reaction.) Tj ET
+BT /F1 11 Tf 72 611.00 Td (The induced fit model states that the active site changes shape when the substrate binds, producing) Tj ET
+BT /F1 11 Tf 72 596.00 Td (a tighter fit around the transition state. Cofactors are inorganic ions or organic coenzymes that) Tj ET
+BT /F1 11 Tf 72 581.00 Td (some enzymes require for activity.) Tj ET
+BT /F2 13 Tf 72 552.00 Td (2.2 Michaelis-Menten kinetics) Tj ET
+BT /F1 11 Tf 72 530.00 Td (The Michaelis-Menten equation is v = Vmax [S] / \(Km + [S]\). Km is the substrate concentration) Tj ET
+BT /F1 11 Tf 72 515.00 Td (at which the reaction runs at half of Vmax, so a low Km indicates high affinity for the substrate.) Tj ET
+BT /F1 11 Tf 72 500.00 Td (At very high substrate concentration, the enzyme is saturated and the rate approaches Vmax.) Tj ET
+BT /F1 11 Tf 72 477.00 Td (A Lineweaver-Burk plot graphs 1/v against 1/[S]. Its y-intercept is 1/Vmax and its x-intercept) Tj ET
+BT /F1 11 Tf 72 462.00 Td (is -1/Km. The double reciprocal form makes it easy to compare inhibitors.) Tj ET
+BT /F2 13 Tf 72 433.00 Td (2.3 Enzyme inhibition) Tj ET
+BT /F1 11 Tf 72 411.00 Td (A competitive inhibitor binds the active site and competes with the substrate. It raises the) Tj ET
+BT /F1 11 Tf 72 396.00 Td (apparent Km but does not change Vmax, because enough substrate can outcompete the inhibitor. A) Tj ET
+BT /F1 11 Tf 72 381.00 Td (noncompetitive inhibitor binds an allosteric site with equal affinity for the free enzyme and the) Tj ET
+BT /F1 11 Tf 72 366.00 Td (enzyme-substrate complex; it lowers Vmax and leaves Km unchanged.) Tj ET
+BT /F1 11 Tf 72 343.00 Td (An uncompetitive inhibitor binds only the enzyme-substrate complex and lowers both Km and Vmax.) Tj ET
+BT /F1 11 Tf 72 328.00 Td (A mixed inhibitor binds either form with different affinities, changing Vmax and changing Km in) Tj ET
+BT /F1 11 Tf 72 313.00 Td (either direction.) Tj ET
+0.2 w 112 134 m 372 134 l S 112 134 m 112 274 l S
+1 w 112 134 m 118.5 152.6 l 125.0 166.5 l 131.5 177.3 l 138.0 186.0 l 144.5 193.1 l 151.0 199.0 l 157.5 204.0 l 164.0 208.3 l 170.5 212.0 l 177.0 215.3 l 183.5 218.1 l 190.0 220.7 l 196.5 222.9 l 203.0 225.0 l 209.5 226.9 l 216.0 228.5 l 222.5 230.1 l 229.0 231.5 l 235.5 232.8 l 242.0 234.0 l 248.5 235.1 l 255.0 236.1 l 261.5 237.1 l 268.0 238.0 l 274.5 238.8 l 281.0 239.6 l 287.5 240.4 l 294.0 241.1 l 300.5 241.7 l 307.0 242.3 l 313.5 242.9 l 320.0 243.5 l 326.5 244.0 l 333.0 244.5 l 339.5 245.0 l 346.0 245.4 l 352.5 245.9 l 359.0 246.3 l 365.5 246.7 l 372.0 247.0 l S
+[3 3] 0 d 0.5 w 112 264.0 m 372 264.0 l S [] 0 d
+BT /F3 9 Tf 72 116.00 Td (Figure 2.1 Reaction rate v rises toward Vmax as substrate concentration [S] increases.) Tj ET
+BT /F1 9 Tf 296 40 Td (2) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 9 0 R /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> >>
+endobj
+11 0 obj
+<< /Length 1422 >>
+stream
+BT /F2 18 Tf 72 720.00 Td (Chapter 3. Bioenergetics and Metabolism) Tj ET
+BT /F2 13 Tf 72 686.00 Td (3.1 Glycolysis) Tj ET
+BT /F1 11 Tf 72 664.00 Td (Glycolysis converts one molecule of glucose into two molecules of pyruvate in the cytoplasm. It) Tj ET
+BT /F1 11 Tf 72 649.00 Td (produces a net gain of two ATP and two NADH. Phosphofructokinase-1 catalyzes the committed,) Tj ET
+BT /F1 11 Tf 72 634.00 Td (rate-limiting step and is inhibited by ATP and citrate and activated by AMP and fructose) Tj ET
+BT /F1 11 Tf 72 619.00 Td (2,6-bisphosphate.) Tj ET
+BT /F1 11 Tf 72 596.00 Td (Under anaerobic conditions, lactate dehydrogenase reduces pyruvate to lactate and regenerates) Tj ET
+BT /F1 11 Tf 72 581.00 Td (NAD+ so that glycolysis can continue.) Tj ET
+BT /F2 13 Tf 72 552.00 Td (3.2 Oxidative phosphorylation) Tj ET
+BT /F1 11 Tf 72 530.00 Td (The electron transport chain in the inner mitochondrial membrane passes electrons from NADH and) Tj ET
+BT /F1 11 Tf 72 515.00 Td (FADH2 to oxygen, the final electron acceptor. The energy released pumps protons into the) Tj ET
+BT /F1 11 Tf 72 500.00 Td (intermembrane space, creating an electrochemical gradient. ATP synthase uses the flow of) Tj ET
+BT /F1 11 Tf 72 485.00 Td (protons back into the matrix to phosphorylate ADP. This coupling of the proton gradient to ATP) Tj ET
+BT /F1 11 Tf 72 470.00 Td (synthesis is called chemiosmosis.) Tj ET
+BT /F1 9 Tf 296 40 Td (3) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 11 0 R /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> >>
+endobj
+13 0 obj
+<< /Length 1246 >>
+stream
+BT /F2 18 Tf 72 720.00 Td (Chapter 4. Fluids) Tj ET
+BT /F2 13 Tf 72 686.00 Td (4.1 Hydrostatic pressure and buoyancy) Tj ET
+BT /F1 11 Tf 72 664.00 Td (Pressure in a static fluid increases with depth: P = P0 + rho g h, where rho is the fluid density and h) Tj ET
+BT /F1 11 Tf 72 649.00 Td (is the depth below the surface. Pascal's principle states that a pressure change applied to an) Tj ET
+BT /F1 11 Tf 72 634.00 Td (enclosed fluid is transmitted undiminished to every part of the fluid.) Tj ET
+BT /F1 11 Tf 72 611.00 Td (Archimedes' principle states that the buoyant force on a submerged object equals the weight of) Tj ET
+BT /F1 11 Tf 72 596.00 Td (the fluid it displaces. An object floats when its average density is less than the density of the) Tj ET
+BT /F1 11 Tf 72 581.00 Td (fluid.) Tj ET
+BT /F2 13 Tf 72 552.00 Td (4.2 Fluid dynamics) Tj ET
+BT /F1 11 Tf 72 530.00 Td (For an ideal fluid, the continuity equation A1 v1 = A2 v2 shows that flow speed increases where a) Tj ET
+BT /F1 11 Tf 72 515.00 Td (pipe narrows. Bernoulli's equation, P + 1/2 rho v^2 + rho g h = constant, expresses conservation of) Tj ET
+BT /F1 11 Tf 72 500.00 Td (energy along a streamline, so pressure falls where speed rises.) Tj ET
+BT /F1 9 Tf 296 40 Td (4) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 13 0 R /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> >>
+endobj
+15 0 obj
+<< /Length 1344 >>
+stream
+BT /F2 18 Tf 72 720.00 Td (Chapter 5. Sensation and Perception) Tj ET
+BT /F2 13 Tf 72 686.00 Td (5.1 Thresholds and signal detection) Tj ET
+BT /F1 11 Tf 72 664.00 Td (The absolute threshold is the minimum stimulus intensity detected half of the time. The difference) Tj ET
+BT /F1 11 Tf 72 649.00 Td (threshold, or just noticeable difference, is the smallest change in a stimulus that can be detected.) Tj ET
+BT /F1 11 Tf 72 634.00 Td (Weber's law states that the just noticeable difference is a constant proportion of the original) Tj ET
+BT /F1 11 Tf 72 619.00 Td (stimulus.) Tj ET
+BT /F1 11 Tf 72 596.00 Td (Signal detection theory separates sensitivity from response bias. A hit is a correct detection of a) Tj ET
+BT /F1 11 Tf 72 581.00 Td (present signal, while a false alarm is a report of a signal that was absent.) Tj ET
+BT /F2 13 Tf 72 552.00 Td (5.2 Vision) Tj ET
+BT /F1 11 Tf 72 530.00 Td (Rods are sensitive to dim light and support night vision, while cones support color vision and high) Tj ET
+BT /F1 11 Tf 72 515.00 Td (acuity and are concentrated in the fovea. Information from the retina travels through the optic) Tj ET
+BT /F1 11 Tf 72 500.00 Td (nerve to the lateral geniculate nucleus of the thalamus and then to the visual cortex in the occipital) Tj ET
+BT /F1 11 Tf 72 485.00 Td (lobe.) Tj ET
+BT /F1 9 Tf 296 40 Td (5) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 15 0 R /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> >>
+endobj
+17 0 obj
+<< /Title (Chapter 1. Amino Acids and Proteins) /Parent 3 0 R /Dest [8 0 R /XYZ 0 740 0] /Next 18 0 R >>
+endobj
+18 0 obj
+<< /Title (Chapter 2. Enzymes) /Parent 3 0 R /Dest [10 0 R /XYZ 0 740 0] /Prev 17 0 R /Next 19 0 R >>
+endobj
+19 0 obj
+<< /Title (Chapter 3. Bioenergetics and Metabolism) /Parent 3 0 R /Dest [12 0 R /XYZ 0 740 0] /Prev 18 0 R /Next 20 0 R >>
+endobj
+20 0 obj
+<< /Title (Chapter 4. Fluids) /Parent 3 0 R /Dest [14 0 R /XYZ 0 740 0] /Prev 19 0 R /Next 21 0 R >>
+endobj
+21 0 obj
+<< /Title (Chapter 5. Sensation and Perception) /Parent 3 0 R /Dest [16 0 R /XYZ 0 740 0] /Prev 20 0 R >>
+endobj
+22 0 obj
+<< /Title (Sample MCAT Review) /Author (Cortex test fixture) /Producer (make-sample-pdf.mjs) >>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000000015 00000 n 
+0000000103 00000 n 
+0000000188 00000 n 
+0000000261 00000 n 
+0000000360 00000 n 
+0000000462 00000 n 
+0000000562 00000 n 
+0000002653 00000 n 
+0000002799 00000 n 
+0000006034 00000 n 
+0000006181 00000 n 
+0000007656 00000 n 
+0000007804 00000 n 
+0000009103 00000 n 
+0000009251 00000 n 
+0000010648 00000 n 
+0000010796 00000 n 
+0000010917 00000 n 
+0000011035 00000 n 
+0000011174 00000 n 
+0000011291 00000 n 
+0000011413 00000 n 
+trailer
+<< /Size 23 /Root 1 0 R /Info 22 0 R >>
+startxref
+11525
+%%EOF

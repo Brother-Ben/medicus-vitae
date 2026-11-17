@@ -1,0 +1,41 @@
+# Medicus Vitae on a home server, NAS or any Docker host: `docker compose up -d`
+#
+# Uses the image published from https://github.com/Brother-Ben/medicus-vitae (see
+# .github/workflows/docker-image.yml), or comment out `image:` and use `build: .` to
+# build here. All data lives in ./data next to this file: keep it, and you can
+# recreate the container or update the image without losing anything.
+#
+# Coming from the "Cortex" version (service "app")? Run
+#   docker compose up -d --remove-orphans
+# once: it starts medicus-vitae with the same ./data and removes the old container.
+#
+# Phones need HTTPS to install the app: on the host, run `tailscale serve --bg 8080`
+# and open https://<host>.<tailnet>.ts.net (see README).
+
+services:
+  medicus-vitae:
+    image: ghcr.io/brother-ben/medicus-vitae:latest
+    # build: .
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Your time zone (a name from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones,
+      # such as America/New_York or Europe/London), so study days and the day-start hour line up.
+      TZ: Etc/UTC
+
+  # User-only web search (WEB-01) arrives in a later version. When it does, it
+  # runs only when enabled: `docker compose --profile search up -d`.
+  # searxng:
+  #   image: searxng/searxng:<pinned-version>
+  #   profiles: ["search"]
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8081:8080"
+  #   volumes:
+  #     - ./searxng:/etc/searxng

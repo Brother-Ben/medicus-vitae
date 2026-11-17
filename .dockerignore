@@ -1,0 +1,19 @@
+node_modules
+build
+build-next
+build-old-*
+.svelte-kit
+data
+runtime
+tests
+Cortex.exe
+Medicus Vitae.exe
+desktop
+.env
+.env.*
+!.env.example
+*.log
+.git
+.github
+static/pdfjs
+dist

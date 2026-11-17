@@ -1,0 +1,20 @@
+{
+	"manifest_version": 3,
+	"name": "Medicus Vitae: Jack Westin import",
+	"version": "1.1.1",
+	"description": "Sends the Jack Westin CARS passage you're on (the passage, every question, and answers once the site shows them) to your own Medicus Vitae.",
+	"permissions": ["storage"],
+	"content_scripts": [
+		{
+			"matches": ["https://jackwestin.com/*", "https://www.jackwestin.com/*"],
+			"js": ["page-data.js"],
+			"run_at": "document_start",
+			"world": "MAIN"
+		},
+		{
+			"matches": ["https://jackwestin.com/*", "https://www.jackwestin.com/*"],
+			"js": ["content.js"],
+			"run_at": "document_idle"
+		}
+	]
+}

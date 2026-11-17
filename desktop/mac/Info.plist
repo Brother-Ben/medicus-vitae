@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- The Mac app's description. scripts/package.mjs fills in the version. -->
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Medicus Vitae</string>
+	<key>CFBundleDisplayName</key>
+	<string>Medicus Vitae</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.medicusvitae.app</string>
+	<key>CFBundleExecutable</key>
+	<string>Medicus Vitae</string>
+	<key>CFBundleIconFile</key>
+	<string>medicus.icns</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleVersion</key>
+	<string>@VERSION@</string>
+	<key>CFBundleShortVersionString</key>
+	<string>@VERSION@</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.5</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.education</string>
+	<!-- No Dock icon: the app only starts the server and opens the browser. -->
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>MIT License</string>
+</dict>
+</plist>

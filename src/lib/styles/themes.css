@@ -1,0 +1,244 @@
+/* =====================================================================
+   Medicus Vitae theme tokens  ·  v1  ·  for the SvelteKit app
+   Source: the "Themes and appearance" boards on the design canvas.
+
+   HOW TO USE (for the coding AI)
+   1. Import this file once, globally (e.g., in the root +layout.svelte or app.css).
+   2. Put the active theme on <html>:  <html data-theme="clinic-dark">
+      Themes: clinic-light | clinic-dark | paper | midnight | high-contrast, and the season themes
+              spring | spring-night | summer | summer-night | fall | fall-night | winter | winter-night
+   3. Replace every hard-coded color in components with these variables.
+      Use the variable for the JOB, not the look:
+        --bg            page background          --sidebar     left navigation
+        --surface       cards                     --surface-2   raised/inset areas, inputs, tracks, segmented controls
+        --border        card borders, dividers    --border-strong  input/button outlines
+        --text / --text-2 / --text-3   main, secondary, muted text (all pass WCAG AA on every surface)
+        --accent        primary buttons, progress fills, active states   --on-accent  text on --accent
+        --accent-soft   active nav item background                       --accent-text  teal text on surfaces
+        --weak / --weak-soft / --weak-text   weak areas and warnings ONLY (never for positive things like streaks)
+        --ink / --on-ink  tutor messages, "Show answer", selection toolbar
+        --heat-1..5 + --heat-text   AAMC heatmap, weak -> strong. "Not enough data" = transparent tile, dashed --border-strong.
+        --sec-cp / --sec-cars / --sec-bb / --sec-ps   section identity colors (Chem/Phys, CARS, Bio/Biochem, Psych/Soc).
+                        Always shown next to a text label, never alone. Hidden (use --border-strong) when the user turns them off.
+        --hl-*          highlighter swatches in the app UI
+   4. SVG: use style="stroke: var(--accent)" or stroke="currentColor" with style="color: var(--accent)".
+      Presentation attributes like stroke="var(--accent)" do NOT resolve CSS variables.
+
+   READER PAGE STYLE (separate from the app theme)
+   - Put data-page on the PDF viewer container: original | dimmed | sepia | inverted.
+   - Setting "Match theme" maps: clinic-light->original, clinic-dark->dimmed, paper->sepia,
+     midnight->inverted, high-contrast->original.
+   - PDF.js draws pages on <canvas>, so page styles are CSS filters on the canvas (rules at the bottom).
+   - Draw highlights and annotations on a layer ABOVE the filtered canvas and color them with
+     --page-hl / --page-hl-2 / --page-note-*, so the filter never distorts highlight colors.
+
+   SETTINGS (Settings > Appearance)
+   - mode: "pick" | "system" | "time"
+       system -> listen to matchMedia('(prefers-color-scheme: dark)') and switch between the two chosen themes
+       time   -> dark theme between the two chosen times (default 20:00-07:00)
+   - theme, lightTheme, darkTheme, page ("match" default), sectionColors (true), focusMode (false), textSize
+   - Saved to the account, with an optional per-device override ("Use a different theme on this device"),
+     stored locally on that device.
+   - Set data-theme before first paint (inline script in app.html) to avoid a flash of the wrong theme.
+   ===================================================================== */
+
+[data-theme="clinic-light"] {
+  color-scheme: light;
+  --bg: #F3F6F5; --sidebar: #FFFFFF; --surface: #FFFFFF; --surface-2: #EDF2F1;
+  --border: #DCE3E2; --border-strong: #C3CDCB;
+  --text: #13201F; --text-2: #3D4B49; --text-3: #596866;
+  --accent: #0F766E; --on-accent: #FFFFFF; --accent-soft: #E0F0ED; --accent-text: #0E6A62;
+  --weak: #B45309; --weak-soft: #FBEBD8; --weak-text: #8F3F0B;
+  --ink: #16243F; --on-ink: #FFFFFF;
+  --heat-1: #F0B47A; --heat-2: #F8DDBE; --heat-3: #E4EAE9; --heat-4: #B7DFD8; --heat-5: #6EC1B4; --heat-text: #13201F;
+  --hl-yellow: #FDE68A; --hl-teal: #A7DDD5; --hl-pink: #F9C6D8; --hl-blue: #C7DDF7;
+  --sec-cp: #2F64D6; --sec-cars: #B5365F; --sec-bb: #5A9324; --sec-ps: #8550C9;
+  --shadow: 0 1px 2px rgba(19, 32, 31, 0.08);
+}
+[data-theme="clinic-dark"] {
+  color-scheme: dark;
+  --bg: #0E1413; --sidebar: #111817; --surface: #161F1E; --surface-2: #1D2827;
+  --border: #263230; --border-strong: #34423F;
+  --text: #E5EDEB; --text-2: #B2BFBC; --text-3: #8B9A97;
+  --accent: #2BB3A3; --on-accent: #05201C; --accent-soft: #123733; --accent-text: #5ECFC0;
+  --weak: #F0A04B; --weak-soft: #3A2916; --weak-text: #F5B76F;
+  --ink: #24365C; --on-ink: #EEF3FF;
+  --heat-1: #7A4513; --heat-2: #4A3420; --heat-3: #24302E; --heat-4: #1E4842; --heat-5: #1F6E63; --heat-text: #E5EDEB;
+  --hl-yellow: #5A4C12; --hl-teal: #1C4943; --hl-pink: #55263B; --hl-blue: #22395C;
+  --sec-cp: #5F86DA; --sec-cars: #CC6189; --sec-bb: #72A23D; --sec-ps: #9576D4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+[data-theme="paper"] {
+  color-scheme: light;
+  --bg: #F2ECE1; --sidebar: #F7F2E9; --surface: #FBF8F2; --surface-2: #EEE6D8;
+  --border: #DFD4C2; --border-strong: #CBBDA6;
+  --text: #2B241C; --text-2: #54493D; --text-3: #6B5E4E;
+  --accent: #2E6D60; --on-accent: #FFFDF8; --accent-soft: #E2EAE0; --accent-text: #2A6356;
+  --weak: #A3561B; --weak-soft: #F3DFC9; --weak-text: #874413;
+  --ink: #3B3227; --on-ink: #FBF8F2;
+  --heat-1: #E4AC77; --heat-2: #F0D8BB; --heat-3: #E7DFD1; --heat-4: #C5DACB; --heat-5: #8BB9A4; --heat-text: #2B241C;
+  --hl-yellow: #F2DC88; --hl-teal: #BDDACC; --hl-pink: #EDCBC9; --hl-blue: #CDDCE9;
+  --sec-cp: #3A62B8; --sec-cars: #A63A57; --sec-bb: #5E8A22; --sec-ps: #7A529F;
+  --shadow: 0 1px 2px rgba(43, 36, 28, 0.08);
+}
+[data-theme="midnight"] {
+  color-scheme: dark;
+  --bg: #000000; --sidebar: #000000; --surface: #0A0D0D; --surface-2: #131817;
+  --border: #1E2524; --border-strong: #2B3433;
+  --text: #D3DCDA; --text-2: #A1ADAB; --text-3: #7E8B89;
+  --accent: #22A293; --on-accent: #001411; --accent-soft: #0B2A27; --accent-text: #4BC2B2;
+  --weak: #DF9344; --weak-soft: #291C0E; --weak-text: #EAA963;
+  --ink: #1A2744; --on-ink: #DCE5F6;
+  --heat-1: #6C3C10; --heat-2: #3C2A19; --heat-3: #1A201F; --heat-4: #173D38; --heat-5: #1B6359; --heat-text: #D3DCDA;
+  --hl-yellow: #4A3F0E; --hl-teal: #153C37; --hl-pink: #46202F; --hl-blue: #1B2F4C;
+  --sec-cp: #5F86DA; --sec-cars: #CC6189; --sec-bb: #72A23D; --sec-ps: #9576D4;
+  --shadow: none;
+}
+[data-theme="high-contrast"] {
+  color-scheme: light;
+  --bg: #FFFFFF; --sidebar: #FFFFFF; --surface: #FFFFFF; --surface-2: #F0F0F0;
+  --border: #767676; --border-strong: #000000;
+  --text: #000000; --text-2: #1A1A1A; --text-3: #333333;
+  --accent: #00574F; --on-accent: #FFFFFF; --accent-soft: #D4EFEB; --accent-text: #004C45;
+  --weak: #8A3B00; --weak-soft: #FFE2C4; --weak-text: #7A3300;
+  --ink: #000000; --on-ink: #FFFFFF;
+  --heat-1: #E8964A; --heat-2: #FFD6AC; --heat-3: #E4E4E4; --heat-4: #9DD8CE; --heat-5: #4DB2A3; --heat-text: #000000;
+  --hl-yellow: #FFE14D; --hl-teal: #8FE0D4; --hl-pink: #FFB3CF; --hl-blue: #A9CCFF;
+  --sec-cp: #2F64D6; --sec-cars: #B5365F; --sec-bb: #5A9324; --sec-ps: #8550C9;
+  --shadow: none;
+}
+
+/* Season themes: a day and a night version of each season (Settings › Appearance).
+   --decor-1 / --decor-2 color that season's decorations (petals, fireflies, leaves, snow). */
+[data-theme="spring"] {
+  color-scheme: light;
+  --bg: #F3F7EF; --sidebar: #FBFDF8; --surface: #FFFFFF; --surface-2: #ECF3E7;
+  --border: #DAE5D2; --border-strong: #BFCFB5;
+  --text: #18231A; --text-2: #3B4A3D; --text-3: #56665A;
+  --accent: #3A7A3E; --on-accent: #FFFFFF; --accent-soft: #E1EFDD; --accent-text: #2E6A33;
+  --weak: #B45309; --weak-soft: #FBEBD8; --weak-text: #8F3F0B;
+  --ink: #3B2C52; --on-ink: #FFFFFF;
+  --heat-1: #F0B47A; --heat-2: #F8DDBE; --heat-3: #E5EBE1; --heat-4: #BFE0B8; --heat-5: #7FC27A; --heat-text: #18231A;
+  --hl-yellow: #FDE68A; --hl-teal: #B3E0CF; --hl-pink: #F8C4D7; --hl-blue: #C7DDF7;
+  --sec-cp: #2F64D6; --sec-cars: #B5365F; --sec-bb: #4E8A22; --sec-ps: #8550C9;
+  --shadow: 0 1px 2px rgba(24, 35, 26, 0.08);
+  --decor-1: #E67FA3; --decor-2: #F6B9CF;
+}
+[data-theme="spring-night"] {
+  color-scheme: dark;
+  --bg: #0F140F; --sidebar: #121812; --surface: #172017; --surface-2: #1E291E;
+  --border: #273326; --border-strong: #364434;
+  --text: #E3ECE0; --text-2: #B3C1AF; --text-3: #8E9D8A;
+  --accent: #6ABF60; --on-accent: #0A1A09; --accent-soft: #1C3519; --accent-text: #8DD682;
+  --weak: #F0A04B; --weak-soft: #3A2916; --weak-text: #F5B76F;
+  --ink: #3A2D55; --on-ink: #F3EEFF;
+  --heat-1: #7A4513; --heat-2: #4A3420; --heat-3: #212B20; --heat-4: #28482A; --heat-5: #3A7038; --heat-text: #E3ECE0;
+  --hl-yellow: #5A4C12; --hl-teal: #1C4943; --hl-pink: #55263B; --hl-blue: #22395C;
+  --sec-cp: #5F86DA; --sec-cars: #CC6189; --sec-bb: #72A23D; --sec-ps: #9576D4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --decor-1: #D9789B; --decor-2: #9C5A74;
+}
+[data-theme="summer"] {
+  color-scheme: light;
+  --bg: #FAF5EA; --sidebar: #FFFBF3; --surface: #FFFFFF; --surface-2: #F3EBDA;
+  --border: #E7DAC2; --border-strong: #D3C2A2;
+  --text: #24201A; --text-2: #4A4436; --text-3: #695F4D;
+  --accent: #0B7083; --on-accent: #FFFFFF; --accent-soft: #DCEFF2; --accent-text: #095F70;
+  --weak: #C2410C; --weak-soft: #FDE6D8; --weak-text: #9A3412;
+  --ink: #1D3A5E; --on-ink: #FFFFFF;
+  --heat-1: #F2A570; --heat-2: #F9D8BC; --heat-3: #EEE7D8; --heat-4: #B3DCE2; --heat-5: #62B3C1; --heat-text: #24201A;
+  --hl-yellow: #FFE48A; --hl-teal: #B2E1E7; --hl-pink: #FAC8C1; --hl-blue: #C5DCF5;
+  --sec-cp: #2F64D6; --sec-cars: #B5365F; --sec-bb: #4E8A22; --sec-ps: #8550C9;
+  --shadow: 0 1px 2px rgba(36, 32, 26, 0.08);
+  --decor-1: #F2B33D; --decor-2: #FFE08A;
+}
+[data-theme="summer-night"] {
+  color-scheme: dark;
+  --bg: #0B1219; --sidebar: #0E161F; --surface: #131C27; --surface-2: #1A2532;
+  --border: #23303E; --border-strong: #314152;
+  --text: #E2E9F0; --text-2: #AEBCCA; --text-3: #8898A9;
+  --accent: #3DB6CA; --on-accent: #03181C; --accent-soft: #0F3540; --accent-text: #6CCFDE;
+  --weak: #F59E5B; --weak-soft: #3A2617; --weak-text: #F8B57F;
+  --ink: #2A3F67; --on-ink: #EEF3FF;
+  --heat-1: #7A3F17; --heat-2: #4A3221; --heat-3: #1E2935; --heat-4: #17414B; --heat-5: #1D6672; --heat-text: #E2E9F0;
+  --hl-yellow: #5A4C12; --hl-teal: #1C4943; --hl-pink: #55263B; --hl-blue: #22395C;
+  --sec-cp: #5F86DA; --sec-cars: #CC6189; --sec-bb: #72A23D; --sec-ps: #9576D4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --decor-1: #E8D27A; --decor-2: #B9E2A0;
+}
+[data-theme="fall"] {
+  color-scheme: light;
+  --bg: #F7F0E5; --sidebar: #FCF7EF; --surface: #FFFDF9; --surface-2: #F0E6D6;
+  --border: #E2D3BD; --border-strong: #CDB899;
+  --text: #2A1F16; --text-2: #52412F; --text-3: #6C5A46;
+  --accent: #9A4A1B; --on-accent: #FFFFFF; --accent-soft: #F4E2D2; --accent-text: #863F15;
+  --weak: #A1263A; --weak-soft: #F7DEE1; --weak-text: #8A1F31;
+  --ink: #3B2A1F; --on-ink: #FFF8F0;
+  --heat-1: #E8A1A4; --heat-2: #F4D4CD; --heat-3: #EEE5D7; --heat-4: #EAC9A3; --heat-5: #CC8A4E; --heat-text: #2A1F16;
+  --hl-yellow: #F6DD86; --hl-teal: #C3DCCB; --hl-pink: #F0CBC6; --hl-blue: #CFDCEA;
+  --sec-cp: #3A62B8; --sec-cars: #A63A57; --sec-bb: #5E8A22; --sec-ps: #7A529F;
+  --shadow: 0 1px 2px rgba(42, 31, 22, 0.08);
+  --decor-1: #C8642A; --decor-2: #E2A13E;
+}
+[data-theme="fall-night"] {
+  color-scheme: dark;
+  --bg: #14100C; --sidebar: #18130E; --surface: #1E1812; --surface-2: #272018;
+  --border: #33291F; --border-strong: #45382B;
+  --text: #EFE6DB; --text-2: #C3B4A2; --text-3: #9E8E7B;
+  --accent: #E08A4A; --on-accent: #221004; --accent-soft: #3B2414; --accent-text: #F0A56C;
+  --weak: #E36D7E; --weak-soft: #3A1A20; --weak-text: #F096A3;
+  --ink: #4A3326; --on-ink: #FFF3E8;
+  --heat-1: #6E2A33; --heat-2: #45282A; --heat-3: #2A2219; --heat-4: #4D3420; --heat-5: #8A5428; --heat-text: #EFE6DB;
+  --hl-yellow: #5A4C12; --hl-teal: #1C4943; --hl-pink: #55263B; --hl-blue: #22395C;
+  --sec-cp: #5F86DA; --sec-cars: #CC6189; --sec-bb: #72A23D; --sec-ps: #9576D4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --decor-1: #C8642A; --decor-2: #B9852F;
+}
+[data-theme="winter"] {
+  color-scheme: light;
+  --bg: #F1F5F9; --sidebar: #FAFCFE; --surface: #FFFFFF; --surface-2: #E8EEF5;
+  --border: #D6DFEA; --border-strong: #BAC7D5;
+  --text: #131B26; --text-2: #3A4657; --text-3: #556375;
+  --accent: #2A5EA7; --on-accent: #FFFFFF; --accent-soft: #E0E9F7; --accent-text: #23518E;
+  --weak: #B45309; --weak-soft: #FBEBD8; --weak-text: #8F3F0B;
+  --ink: #1A2943; --on-ink: #FFFFFF;
+  --heat-1: #F0B47A; --heat-2: #F8DDBE; --heat-3: #E2E8EE; --heat-4: #B8CCEA; --heat-5: #7099D5; --heat-text: #131B26;
+  --hl-yellow: #FDE68A; --hl-teal: #B2DFE0; --hl-pink: #F5CADB; --hl-blue: #C9DAF5;
+  --sec-cp: #2F64D6; --sec-cars: #B5365F; --sec-bb: #4E8A22; --sec-ps: #8550C9;
+  --shadow: 0 1px 2px rgba(19, 27, 38, 0.08);
+  --decor-1: #9DB8DE; --decor-2: #CFDDF0;
+}
+[data-theme="winter-night"] {
+  color-scheme: dark;
+  --bg: #0A0E15; --sidebar: #0D121A; --surface: #121923; --surface-2: #19222F;
+  --border: #222D3C; --border-strong: #303E51;
+  --text: #E1E7EF; --text-2: #ADB8C7; --text-3: #8693A5;
+  --accent: #79A6E8; --on-accent: #07152A; --accent-soft: #15284A; --accent-text: #9CBDF0;
+  --weak: #F0A04B; --weak-soft: #3A2916; --weak-text: #F5B76F;
+  --ink: #2A3B60; --on-ink: #EEF3FF;
+  --heat-1: #7A4513; --heat-2: #4A3420; --heat-3: #1D2632; --heat-4: #1D3456; --heat-5: #2D5590; --heat-text: #E1E7EF;
+  --hl-yellow: #5A4C12; --hl-teal: #1C4943; --hl-pink: #55263B; --hl-blue: #22395C;
+  --sec-cp: #5F86DA; --sec-cars: #CC6189; --sec-bb: #72A23D; --sec-ps: #9576D4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --decor-1: #C9D6EA; --decor-2: #8FA6C8;
+}
+
+/* Reader page styles: set separately from the app theme. */
+[data-page="original"] { --page-bg: #FFFFFF; --page-text: #1F2937; --page-text-2: #4B5563; --page-hl: #FDE68A; --page-hl-2: #C7DDF7; --page-note-bg: #FEF7E0; --page-note-text: #5C4A0E; --page-rule: #E5E7EB; }
+[data-page="dimmed"]   { --page-bg: #C8C9C5; --page-text: #151A20; --page-text-2: #333A42; --page-hl: #D9C46A; --page-hl-2: #A3B7CF; --page-note-bg: #D6CFB4; --page-note-text: #3D3108; --page-rule: #B3B4B0; }
+[data-page="sepia"]    { --page-bg: #F3EAD5; --page-text: #3F3121; --page-text-2: #5E4D3A; --page-hl: #EBD27E; --page-hl-2: #C9D3D9; --page-note-bg: #EADBB7; --page-note-text: #4A3A12; --page-rule: #E0D3B6; }
+[data-page="inverted"] { --page-bg: #1A1B1D; --page-text: #D9DADC; --page-text-2: #A9ABAF; --page-hl: #5A4C12; --page-hl-2: #22395C; --page-note-bg: #2E2914; --page-note-text: #E8D9A2; --page-rule: #2E3033; }
+
+/* Body defaults */
+html, body { background: var(--bg); color: var(--text); }
+
+/* PDF page filters (PDF.js canvas). Highlight layer sits above and is NOT filtered. */
+[data-page="original"] .pdf-page canvas { filter: none; }
+[data-page="dimmed"]   .pdf-page canvas { filter: brightness(0.8) contrast(0.95); }
+[data-page="sepia"]    .pdf-page canvas { filter: sepia(0.35) brightness(0.96); }
+[data-page="inverted"] .pdf-page canvas { filter: invert(0.88) hue-rotate(180deg); }
+/* Rename .pdf-page to whatever class wraps each rendered page in the app. */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

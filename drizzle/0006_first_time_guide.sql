@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `guide_done_at` integer;

@@ -1,0 +1,41 @@
+node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+# SQLite
+*.db
+
+# Medicus Vitae: your data, the portable Node runtime, the compiled tray app, generated assets
+/data
+/runtime
+/Cortex.exe
+/Medicus Vitae.exe
+/build-next
+/dist
+/build-old-*
+/static/pdfjs
+/static/katex
+/tests/.tmp
+
+# Editor and assistant settings that are personal to one computer
+.claude/settings.local.json
+.vscode/settings.json

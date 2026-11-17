@@ -1,0 +1,49 @@
+Medicus Vitae @VERSION@ for Mac (Apple Silicon: M1 and later)
+==============================================================
+
+A personal MCAT study app: read your books, make flashcards, review them with
+FSRS, track the questions you miss, and see where you're weak.
+
+INSTALL
+-------
+1. Drag "Medicus Vitae" onto the Applications folder in this window.
+
+2. The app isn't signed with a paid Apple developer certificate, so macOS
+   blocks it the first time. Allow it in one of two ways:
+
+   a) Open Terminal (Applications > Utilities) and paste this line, then
+      press Return:
+
+        xattr -dr com.apple.quarantine "/Applications/Medicus Vitae.app"
+
+   or
+
+   b) Open the app. When macOS says it can't be opened, click Done, then go
+      to System Settings > Privacy & Security, scroll down, click
+      "Open Anyway" next to Medicus Vitae, and confirm.
+      If macOS then complains about a file inside the app, use (a).
+
+3. Open Medicus Vitae from Applications or Launchpad. Your browser opens at
+   http://localhost:8080. Create your account; everything starts empty.
+
+USING IT
+--------
+The app has no window of its own: it runs a small server and opens Medicus
+in your browser. Close the tab whenever you like; open the app again to get
+back to it. To stop the server, press Quit in Medicus's sidebar.
+
+YOUR DATA
+---------
+Everything you add stays on this Mac, in
+  ~/Library/Application Support/Medicus Vitae
+(data, settings and logs). Replacing the app with a newer version keeps it.
+Back it up with Settings > Data > Export everything.
+
+SETTINGS
+--------
+To change the port or other settings, create a file named ".env" in that
+folder. The settings are explained in .env.example, at
+  /Applications/Medicus Vitae.app/Contents/Resources/app/.env.example
+
+Help, source code and new versions: @REPO_URL@
+License: MIT.

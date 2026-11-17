@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" data-theme="%medicus.theme%">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="text-scale" content="scale" />
+		<meta name="theme-color" content="" id="mv-theme-color" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Medicus" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png" />
+		<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+		<!-- The account's appearance settings, and the script that applies them before the first paint (no flash of the wrong theme). -->
+		<script id="mv-appearance" type="application/json">%medicus.appearance%</script>
+		<script>%medicus.boot%</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
